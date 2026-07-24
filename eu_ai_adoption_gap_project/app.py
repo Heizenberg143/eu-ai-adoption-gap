@@ -39,24 +39,77 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .stApp { background: #ffffff; color: #172033; }
+    /*
+      Keep the main dashboard readable regardless of the visitor's browser or
+      Streamlit theme. Streamlit otherwise lets some labels inherit dark-mode
+      text colors even though this app uses a white canvas.
+    */
+    .stApp,
+    [data-testid="stAppViewContainer"],
+    [data-testid="stMain"] {
+        background: #ffffff;
+        color: #172033;
+    }
     .block-container { max-width: 1280px; padding-top: 2rem; padding-bottom: 4rem; }
     h1, h2, h3 { color: #172033; letter-spacing: -0.02em; }
+
+    /* Summary metric cards */
     [data-testid="stMetric"] {
         background: #f6f8fb;
         border: 1px solid #e8ecf2;
         border-radius: 12px;
         padding: 14px 16px;
     }
-    [data-testid="stMetricValue"] { color: #0072b2; }
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricLabel"] p {
+        color: #475467 !important;
+        opacity: 1 !important;
+    }
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricValue"] > div {
+        color: #0072b2 !important;
+    }
+    [data-testid="stMetricDelta"] { opacity: 1 !important; }
+
+    /* Navigation tabs: visible at rest, on hover, and when selected */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 0.15rem;
+        border-bottom-color: #e8ecf2;
+    }
+    .stTabs button[data-baseweb="tab"] {
+        color: #475467 !important;
+        opacity: 1 !important;
+    }
+    .stTabs button[data-baseweb="tab"] p {
+        color: inherit !important;
+        opacity: 1 !important;
+    }
+    .stTabs button[data-baseweb="tab"]:hover {
+        color: #0072b2 !important;
+    }
+    .stTabs button[data-baseweb="tab"][aria-selected="true"] {
+        color: #0072b2 !important;
+        font-weight: 600;
+    }
+    .stTabs button[data-baseweb="tab"]:focus-visible {
+        outline: 2px solid #0072b2;
+        outline-offset: 2px;
+    }
+    .stTabs [data-baseweb="tab-highlight"] {
+        background-color: #0072b2 !important;
+    }
+
     .story-note {
         border-left: 4px solid #e69f00;
         background: #fff9ed;
+        color: #172033;
         padding: 0.9rem 1rem;
         border-radius: 4px 10px 10px 4px;
         margin: 0.5rem 0 1.25rem 0;
     }
+    .story-note * { color: #172033 !important; }
     .small-note { color: #667085; font-size: 0.9rem; }
+    [data-testid="stSidebar"] .small-note { color: #aab3c2; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -390,4 +443,3 @@ with about_tab:
           denominators; each visual states which denominator it uses.
         """
     )
-
