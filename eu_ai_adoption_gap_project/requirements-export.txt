@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Only needed to regenerate the static PNG files. The dashboard and notebook
+# work without Kaleido, which avoids an unnecessary binary dependency on Mac.
+kaleido==0.2.1

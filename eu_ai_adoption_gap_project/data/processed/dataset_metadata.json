@@ -1,0 +1,35 @@
+{
+  "title": "EU enterprise AI adoption, 2023-2025",
+  "generated_at_utc": "2026-07-24T22:43:06.713034+00:00",
+  "rows": 43881,
+  "columns": [
+    "source_dataset",
+    "time",
+    "geo",
+    "iso_alpha",
+    "size_emp",
+    "nace_r2",
+    "indic_is",
+    "unit",
+    "value",
+    "status"
+  ],
+  "datasets": [
+    "isoc_eb_ai",
+    "isoc_eb_ain2"
+  ],
+  "years": [
+    2023,
+    2024,
+    2025
+  ],
+  "countries": 27,
+  "source_updated": [
+    "2026-06-15T11:00:00+0200"
+  ],
+  "notes": [
+    "Values are aggregate survey percentages, not firm-level observations.",
+    "Eurostat status flags are retained in the status column.",
+    "The Greek Eurostat code EL is mapped to ISO3 code GRC for consistent country identifiers."
+  ]
+}
