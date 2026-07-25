@@ -26,7 +26,16 @@ from src.data import (
     load_data,
     metric,
 )
-from src.style import BLUE, INK, LIGHT, MUTED, ORANGE, VERMILLION, apply_layout
+from src.style import (
+    BLUE,
+    INK,
+    LIGHT,
+    MUTED,
+    ORANGE,
+    VERMILLION,
+    apply_layout,
+    format_1dp,
+)
 
 
 st.set_page_config(
@@ -73,12 +82,13 @@ st.markdown(
 
     /* Navigation tabs: visible at rest, on hover, and when selected */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 0.15rem;
+        gap: 0.25rem;
         border-bottom-color: #e8ecf2;
     }
     .stTabs button[data-baseweb="tab"] {
         color: #475467 !important;
         opacity: 1 !important;
+        padding: 0.55rem 0.75rem !important;
     }
     .stTabs button[data-baseweb="tab"] p {
         color: inherit !important;
@@ -357,10 +367,26 @@ large_2025 = metric(
 )["value"].iloc[0]
 
 col1, col2, col3, col4 = st.columns(4)
-col1.metric("EU firms using AI", f"{eu_2025:.1f}%", f"+{eu_2025 - eu_2023:.1f} pp vs 2023")
-col2.metric("2025 leader", leader["geo_label"], f"{leader['value']:.1f}%")
-col3.metric("Large-firm adoption", f"{large_2025:.1f}%", "EU, 2025")
-col4.metric("Large-small gap", f"{large_2025 - small_2025:.1f} pp", "EU, 2025")
+col1.metric(
+    "EU firms using AI",
+    f"{format_1dp(eu_2025)}%",
+    f"+{format_1dp(eu_2025 - eu_2023)} pp vs 2023",
+)
+col2.metric(
+    "2025 leader",
+    leader["geo_label"],
+    f"{format_1dp(leader['value'])}%",
+)
+col3.metric(
+    "Large-firm adoption",
+    f"{format_1dp(large_2025)}%",
+    "EU, 2025",
+)
+col4.metric(
+    "Large-small gap",
+    f"{format_1dp(large_2025 - small_2025)} pp",
+    "EU, 2025",
+)
 
 overview_tab, size_tab, sector_tab, barrier_tab, about_tab = st.tabs(
     ["Overview", "Firm-size divide", "Sectors & use cases", "Barriers", "About"]

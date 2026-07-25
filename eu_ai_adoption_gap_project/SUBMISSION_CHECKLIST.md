@@ -16,11 +16,11 @@
 
 ## Still required before submitting
 
-- [ ] Create the new public GitHub repository `eu-ai-adoption-gap`
-- [ ] Upload this project to that repository
-- [ ] Deploy `app.py` with Streamlit Community Cloud
-- [ ] Replace the dashboard URL placeholder in the README and presentation
-- [ ] Download or create the final ZIP after the live link is added
+- [x] Create the new public GitHub repository `eu-ai-adoption-gap`
+- [x] Upload this project to that repository
+- [x] Deploy `app.py` with Streamlit Community Cloud
+- [x] Replace the dashboard URL placeholder in the README and presentation
+- [x] Download or create the final ZIP after the live link is added
 - [ ] Submit the public repository link and ZIP in Teams by Friday, 31 July 2026
 
 Do not use the existing `dataviz-exercises-usaidaamer` classwork repository.

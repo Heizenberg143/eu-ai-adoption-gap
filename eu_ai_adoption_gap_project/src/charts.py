@@ -30,6 +30,7 @@ from src.style import (
     SKY,
     VERMILLION,
     apply_layout,
+    format_1dp,
 )
 
 
@@ -116,7 +117,10 @@ def fig_01_eu_acceleration(data: pd.DataFrame) -> go.Figure:
                 text=[
                     "",
                     "",
-                    f"<b>{label}</b>  {part['value'].iloc[-1]:.1f}%",
+                    (
+                        f"<b>{label}</b>  "
+                        f"{format_1dp(part['value'].iloc[-1])}%"
+                    ),
                 ],
                 textposition="middle right",
                 cliponaxis=False,
@@ -716,13 +720,22 @@ def fig_10_interest_vs_adoption(data: pd.DataFrame) -> go.Figure:
         else "",
         axis=1,
     )
+    label_positions = frame["nace_r2"].map(
+        {
+            "J": "top center",
+            "M": "top center",
+            "D": "top center",
+            "L": "top center",
+            "F": "bottom center",
+        }
+    ).fillna("top center")
     fig = go.Figure(
         go.Scatter(
             x=frame["adoption"],
             y=frame["considered"],
             mode="markers+text",
             text=direct_labels,
-            textposition="top center",
+            textposition=label_positions,
             marker={
                 "size": 13,
                 "color": colors,

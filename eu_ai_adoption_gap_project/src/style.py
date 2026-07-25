@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from decimal import Decimal, ROUND_HALF_UP
+
 import plotly.graph_objects as go
 
 
@@ -28,6 +30,15 @@ SIZE_COLORS = {
 }
 
 SOURCE_NOTE = "Source: Eurostat — isoc_eb_ai and isoc_eb_ain2"
+
+
+def format_1dp(value: float) -> str:
+    """Format survey percentages with conventional half-up rounding."""
+
+    rounded = Decimal(str(float(value))).quantize(
+        Decimal("0.1"), rounding=ROUND_HALF_UP
+    )
+    return f"{rounded:.1f}"
 
 
 def title_with_subtitle(title: str, subtitle: str) -> str:
@@ -93,4 +104,3 @@ def apply_layout(
         title_font={"color": INK},
     )
     return fig
-

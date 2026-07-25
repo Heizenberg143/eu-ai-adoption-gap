@@ -3,6 +3,9 @@
 **Data Visualization final project - Summer 2026**  
 **Student:** Usaid Aamer
 
+**Live dashboard:** [usaid-eu-ai-adoption-gap.streamlit.app](https://usaid-eu-ai-adoption-gap.streamlit.app/)  
+**GitHub repository:** [Heizenberg143/eu-ai-adoption-gap](https://github.com/Heizenberg143/eu-ai-adoption-gap)
+
 Europe's business use of artificial intelligence is accelerating, but the
 benefits are not spreading evenly. This project asks:
 
@@ -144,7 +147,7 @@ The Streamlit app contains five tabs:
 It includes a year filter, country selector, sector-purpose explorer, and
 consistent color-safe Plotly styling.
 
-**Live dashboard:** to be added after deployment to Streamlit Community Cloud.
+**Live dashboard:** [https://usaid-eu-ai-adoption-gap.streamlit.app/](https://usaid-eu-ai-adoption-gap.streamlit.app/)
 
 ## Reproducibility
 
